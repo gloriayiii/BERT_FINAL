@@ -1068,7 +1068,7 @@ def main():
 
     # Train model
     print("Starting training...")
-    history = train_model(model, train_dataloader, val_dataloader, epochs=1)
+    history = train_model(model, train_dataloader, val_dataloader, epochs=5)
 
     # Plot training history
     plot_training_history(history)
