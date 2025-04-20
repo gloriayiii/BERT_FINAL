@@ -208,17 +208,21 @@ class BERTSentimentClassifier(nn.Module):
         self.classifier = nn.Linear(self.bert.config.hidden_size, num_classes)
 
     def forward(self, input_ids, attention_mask):
-        # Get BERT outputs
-        outputs = self.bert(input_ids=input_ids, attention_mask=attention_mask)
+        outputs = self.bert(
+            input_ids=input_ids,
+            attention_mask=attention_mask,
+            output_attentions=True
+        )
 
-        # Use the [CLS] token representation for classification
+        # Extract attention weights
+        attentions = outputs.attentions
+
+        # Rest of your forward method
         pooled_output = outputs.pooler_output
-
-        # Apply dropout and classify
         pooled_output = self.dropout(pooled_output)
         logits = self.classifier(pooled_output)
 
-        return logits, outputs.attentions
+        return logits, attentions
 
 
 # Hybrid BERT with BiLSTM
@@ -1049,7 +1053,7 @@ def main():
     head_view(attention, tokens)
 
     # Initialize model (choose one of the three model architectures)
-    model_type = "aspect"  # Options: "standard", "hybrid", "aspect"
+    model_type = "standard"  # Options: "standard", "hybrid", "aspect"
 
     if model_type == "standard":
         model = BERTSentimentClassifier(num_classes=2).to(device)
@@ -1064,7 +1068,7 @@ def main():
 
     # Train model
     print("Starting training...")
-    history = train_model(model, train_dataloader, val_dataloader, epochs=5)
+    history = train_model(model, train_dataloader, val_dataloader, epochs=1)
 
     # Plot training history
     plot_training_history(history)
@@ -1095,7 +1099,7 @@ def main():
     attention_weights = visualize_attention(model, tokenizer, sample_text)
 
     # save the model
-    model_save_path = "sentiment_model_aspect.pth"
+    model_save_path = "standard_model_test.pth"
     torch.save(model.state_dict(), model_save_path)
     print(f"Model saved to {model_save_path}")
 
