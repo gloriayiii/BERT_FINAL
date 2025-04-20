@@ -28,7 +28,7 @@ def set_seed(seed_value=42):
 set_seed()
 
 # Device configuration
-device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+device = torch.device("mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
 # Load and prepare datasets
@@ -502,7 +502,7 @@ def plot_training_history(history):
     ax2.legend()
 
     plt.tight_layout()
-    plt.savefig('training_history.png')
+    plt.savefig('images/training_history.png')
     plt.close()
 
 
@@ -514,7 +514,7 @@ def plot_confusion_matrix(cm, classes):
     plt.ylabel('True Label')
     plt.title('Confusion Matrix')
     plt.tight_layout()
-    plt.savefig('confusion_matrix.png')
+    plt.savefig('images/confusion_matrix.png')
     plt.close()
 
 
@@ -529,7 +529,7 @@ def plot_roc_curve(fpr, tpr, roc_auc):
     plt.ylabel('True Positive Rate')
     plt.title('Receiver Operating Characteristic')
     plt.legend(loc="lower right")
-    plt.savefig('roc_curve.png')
+    plt.savefig('images/roc_curve.png')
     plt.close()
 
 
@@ -586,7 +586,7 @@ def visualize_attention(model, tokenizer, text, layer_index=-1, head_index=0):
                     cmap='viridis')
         plt.title(f'Attention Weights for Layer {layer_index}, Head {head_index}')
         plt.tight_layout()
-        plt.savefig('attention_heatmap.png')
+        plt.savefig('images/attention_heatmap.png')
         plt.close()
 
         return attention_weights
