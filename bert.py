@@ -29,7 +29,7 @@ def set_seed(seed_value=42):
 set_seed()
 
 # Device configuration
-device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
+device = torch.device("mps" if torch.backends.mps.is_available() else "cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using device: {device}")
 
 # Load and prepare datasets
@@ -911,7 +911,7 @@ def visualize_attention(model, tokenizer, text):
 #         print(f"Confidence: {confidence:.2f}%")
 #         print("-" * 40)
 
-def run_sample_testing(model, samples):
+def run_sample_testing(model, tokenizer):
     results = []
     """Test the model with sample texts and print results, with support for aspect-based analysis."""
     print("\n" + "=" * 50)
@@ -943,8 +943,7 @@ def run_sample_testing(model, samples):
         print("-" * 40)
 
         # Get analysis results
-        analysis = model.analyze(sample)
-
+        analysis = model.analyze(tokenizer, sample)
         # Display results
         print(f"Overall Sentiment: {analysis['overall_sentiment']}")
         print(f"Confidence: {analysis['overall_confidence']:.2f}%")
@@ -1162,7 +1161,7 @@ def main():
 
     # Train model
     print("Starting training...")
-    history = train_model(model, train_dataloader, val_dataloader, epochs=1)
+    history = train_model(model, train_dataloader, val_dataloader, epochs=5)
 
     # Plot training history
     plot_training_history(history)

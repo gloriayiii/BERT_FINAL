@@ -1,0 +1,140 @@
+Using device: cuda
+Loading datasets...
+Datasets loaded successfully
+Selected dataset: imdb
+Dataset splits - Train: 20000, Validation: 5000, Test: 25000
+<IPython.core.display.HTML object>
+<IPython.core.display.HTML object>
+<IPython.core.display.Javascript object>
+Model initialized: aspect
+Starting training...
+======== Epoch 1 / 5 ========
+Average training loss: 0.4037
+Validation Loss: 0.2918
+Validation Accuracy: 0.8660
+======== Epoch 2 / 5 ========
+Average training loss: 0.2356
+Validation Loss: 0.3083
+Validation Accuracy: 0.8894
+======== Epoch 3 / 5 ========
+Average training loss: 0.1330
+Validation Loss: 0.4435
+Validation Accuracy: 0.8820
+======== Epoch 4 / 5 ========
+Average training loss: 0.0638
+Validation Loss: 0.5280
+Validation Accuracy: 0.8874
+======== Epoch 5 / 5 ========
+Average training loss: 0.0355
+Validation Loss: 0.6133
+Validation Accuracy: 0.8856
+Evaluating model...
+Accuracy: 0.8865
+Precision: 0.8865
+Recall: 0.8865
+F1 Score: 0.8865
+
+Testing model with sample texts...
+
+==================================================
+SAMPLE SENTIMENT ANALYSIS RESULTS
+==================================================
+
+Sample 1:
+----------------------------------------
+Text: This movie was amazing and I loved every minute of it!
+----------------------------------------
+Overall Sentiment: Positive
+Confidence: 99.83%
+
+Detected Aspects:
+ - direction: Negative (detection: 51.35%, sentiment: 55.97%)
+ - special effects: Positive (detection: 57.15%, sentiment: 50.15%)
+ - dialogue: Positive (detection: 52.78%, sentiment: 50.65%)
+ - characters: Positive (detection: 51.65%, sentiment: 53.99%)
+ - editing: Negative (detection: 52.58%, sentiment: 50.87%)
+==================================================
+
+Sample 2:
+----------------------------------------
+Text: The worst film I've ever seen, a complete waste of time.
+----------------------------------------
+Overall Sentiment: Negative
+Confidence: 99.95%
+
+Detected Aspects:
+ - acting: Positive (detection: 52.16%, sentiment: 56.59%)
+ - direction: Positive (detection: 55.26%, sentiment: 56.67%)
+ - characters: Positive (detection: 51.64%, sentiment: 61.89%)
+ - story: Positive (detection: 50.51%, sentiment: 60.61%)
+ - editing: Negative (detection: 55.76%, sentiment: 53.40%)
+==================================================
+
+Sample 3:
+----------------------------------------
+Text: Good acting but the story was boring and predictable.
+----------------------------------------
+Overall Sentiment: Negative
+Confidence: 99.90%
+
+Detected Aspects:
+ - acting: Positive (detection: 52.85%, sentiment: 59.39%)
+ - plot: Positive (detection: 50.61%, sentiment: 56.87%)
+ - direction: Positive (detection: 55.66%, sentiment: 59.28%)
+ - special effects: Positive (detection: 50.71%, sentiment: 50.86%)
+ - characters: Positive (detection: 52.80%, sentiment: 51.03%)
+ - story: Positive (detection: 51.83%, sentiment: 54.23%)
+ - editing: Positive (detection: 52.02%, sentiment: 54.50%)
+==================================================
+
+Sample 4:
+----------------------------------------
+Text: The cinematography was beautiful but the dialogue was terrible.
+----------------------------------------
+Overall Sentiment: Negative
+Confidence: 99.90%
+
+Detected Aspects:
+ - acting: Positive (detection: 52.23%, sentiment: 54.65%)
+ - plot: Positive (detection: 50.93%, sentiment: 59.11%)
+ - direction: Positive (detection: 55.11%, sentiment: 54.85%)
+ - special effects: Positive (detection: 51.40%, sentiment: 55.57%)
+ - characters: Negative (detection: 52.40%, sentiment: 50.09%)
+ - story: Positive (detection: 51.83%, sentiment: 61.91%)
+ - editing: Positive (detection: 51.63%, sentiment: 61.38%)
+==================================================
+
+Sample 5:
+----------------------------------------
+Text: The characters were well-developed and the plot was engaging.
+----------------------------------------
+Overall Sentiment: Positive
+Confidence: 99.05%
+
+Detected Aspects:
+ - plot: Negative (detection: 50.98%, sentiment: 53.85%)
+ - direction: Negative (detection: 50.06%, sentiment: 55.00%)
+ - special effects: Negative (detection: 57.27%, sentiment: 51.30%)
+ - dialogue: Positive (detection: 51.02%, sentiment: 56.14%)
+ - characters: Negative (detection: 51.67%, sentiment: 57.68%)
+ - editing: Positive (detection: 50.95%, sentiment: 58.39%)
+==================================================
+
+Sample 6:
+----------------------------------------
+Text: Great special effects, but poor character development.
+----------------------------------------
+Overall Sentiment: Negative
+Confidence: 99.84%
+
+Detected Aspects:
+ - acting: Positive (detection: 50.97%, sentiment: 54.36%)
+ - plot: Positive (detection: 51.91%, sentiment: 63.18%)
+ - direction: Positive (detection: 53.61%, sentiment: 56.86%)
+ - special effects: Positive (detection: 53.83%, sentiment: 60.86%)
+ - characters: Positive (detection: 51.34%, sentiment: 57.57%)
+ - story: Positive (detection: 52.56%, sentiment: 62.93%)
+ - editing: Positive (detection: 51.05%, sentiment: 52.94%)
+==================================================
+
+Would you like to test the model interactively? (y/n)
